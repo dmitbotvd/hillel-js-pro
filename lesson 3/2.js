@@ -1,8 +1,8 @@
 let table = alert('У тебя 3 варианта Фаренгейт(f), Цельсий(c), Кельвин(k)'),
-    quiz = prompt('укажи температуру', 'asd'),
-    unitPrompt = prompt('po chemy shitaty? ', 'f');
+    quizTemp = prompt('Укажи температуру', ''),
+    unitPrompt = prompt('Выбери  (f), (c), (k)', '');
 let f, c, k, 
-    temp = quiz,
+    temp = quizTemp,
     unit = unitPrompt;
 
 if (unit == 'f') {
