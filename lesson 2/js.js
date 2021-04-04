@@ -1,4 +1,4 @@
-console.log(40 / "4"); //= 4 
+console.log(40 / "4"); //= 10 
 console.log(true + true); //= 2
 console.log("valera" + 123); //= valera123
 console.log(+"true"); //= NaN
