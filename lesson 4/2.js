@@ -1,9 +1,9 @@
-function factorial(n){
+function res(n) {
   if (n === 1) {
     return 1;
-  } else {
-    return n * factorial(n - 1);
-  }
+  } 
+  let current = n;
+  n -= 1;
+  return current + res(n);
 }
-let res = factorial(4);
-console.log(res);
+console.log(res(5));
