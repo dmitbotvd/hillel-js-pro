@@ -79,3 +79,51 @@ async function story() {
 }
 story();
 
+
+
+
+
+
+function Person(first, last, age, gender, interests) {
+  this.name = {
+    first,
+    last
+  };
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
+}
+Person.prototype.greeting = function() {
+  console.log('Hi! I\'m ' + this.name.first + '.');
+};
+
+let pers1 = new Person('Val', 'Dmit', 25, 'man', 'dev');
+console.log(pers1);
+
+function Teacher(first, last, age, gender, interests, subject) {
+  Person.call(this, first, last, age, gender, interests);
+
+  this.subject = subject;
+}
+Object.getOwnPropertyNames(Teacher.prototype);
+let pers2 = new Teacher('Val', 'Dmit', 25, 'man', 'dev', 'tra');
+Teacher.prototype = Object.create(Person.prototype);
+Object.defineProperty(Teacher.prototype, 'constructor', {
+  value: Teacher,
+  enumerable: false,
+  writable: true,
+});
+
+Teacher.prototype.greeting = function () {
+  var prefix;
+
+  if (this.gender === 'male' || this.gender === 'Male' || this.gender === 'm' || this.gender === 'M') {
+    prefix = 'Mr.';
+  } else if (this.gender === 'female' || this.gender === 'Female' || this.gender === 'f' || this.gender === 'F') {
+    prefix = 'Mrs.';
+  } else {
+    prefix = 'Mx.';
+  }
+  console.log('Hello. My name is ' + prefix + ' ' + this.name.last + ', and I teach ' + this.subject + '.');
+};
+var teacher1 = new Teacher('Dave', 'Griffiths', 31, 'male', ['football', 'cookery'], 'mathematics');
