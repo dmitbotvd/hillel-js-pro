@@ -15,7 +15,7 @@ class Character {
   }
 }
 class Creature extends Character {
-  
+
 }
 class Human extends Character {
   constructor(name, age) {
@@ -62,14 +62,14 @@ async function story() {
   let lisa = new Fox('lisa', true, 'red');
   let volk = new Wolf('volk');
   let test = new Animal('test');
-  // async function chapter1(pers1, pers2, pers3) {
-  //   pers2.say('1');
-  //   await pers1.sayProm('2').then(() => {
-  //     return pers2.sayProm('3').then(() => {
-  //       return pers3.say('4');
-  //     });
-  //   });
-  // }
+  async function chapter1(pers1, pers2, pers3) {
+    pers2.say('1');
+    await pers1.sayProm('2').then(() => {
+      return pers2.sayProm('3').then(() => {
+        return pers3.say('4');
+      });
+    });
+  }
   async function chapter2(pers1, pers2, pers3) {
     pers2.say('11');
     await pers1.sayProm('22').then(() => {
@@ -79,7 +79,7 @@ async function story() {
     });
   }
 
-  //await chapter1(kolobok, grandMa, grandFa);
+  await chapter1(kolobok, grandMa, grandFa);
   await chapter2(kolobok, lisa, volk);
   console.log(kolobok);
   console.log(grandMa);
